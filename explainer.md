@@ -29,3 +29,36 @@ It is not a goal to support features offered to an installed PWA for ‘suppleme
 * browser handling of launcher icon clicks
 * tray/menu/notification icons
 * context menu shortcuts (action/jumplist shortcuts)
+
+## Considered approaches
+
+In the following subsections we take a closer look at the following possible approaches:
+
+* Manifest URL - shortcuts to sub-parts of the main app are implemented as sub-apps (each having its own manifest)
+* JSON object - similar to Manifest URL
+* Large manifest - shortcuts are implemented statically in the manifest of the main app
+
+Weighing the pros and cons of each we pick the Manifest URL as the most viable approach.
+
+### Manifest URL
+
+The client app will add sub-apps via something like the following, which would in essence install the sub-app almost the same way as a regular app:
+
+```
+spreadsheet_url = "https://vdi.app/spreadsheet/manifest.json";
+
+await navigator.addRelatedApplication(spreadsheet_url);
+
+// /spreadsheet/manifest.json
+{
+  "name": "Spreadsheet",
+  "icons": [{
+    "src": "/images/icons/spreadsheet.png",
+  }],
+  "start_url": "/spreadsheet/",
+  "display": "standalone"
+}
+```
+This API call would be restricted to same-origin manifests as the document calling it.
+
+asd
