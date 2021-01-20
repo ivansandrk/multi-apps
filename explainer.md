@@ -90,7 +90,7 @@ spreadsheet = {
 await navigator.addRelatedApplication(spreadsheet);
 ```
 
-**Pros** (compared to the Manifest URL approach):
+**Pros (compared to the Manifest URL approach):**
 * Clients of API don’t need to serve the manifest
 
 **Cons (compared to the Manifest URL approach):**
@@ -99,4 +99,72 @@ await navigator.addRelatedApplication(spreadsheet);
 
 ### Large manifest
 
-asd
+Do everything in the manifest. The sub-apps/shortcuts for the main app would be specified in its manifest statically. The manifest of the app would look something like the following:
+```
+{
+  "name": "Office VDI app",
+  "start_url": "https://vdi.app/",
+  "shortcuts": [{
+    "name": "Word processor",
+    "url": "/word-processor",
+    "icon": "/icons/word-processor.svg",
+    // Since jumplist (context menu) shortcuts already exist.
+    "location": "launcher",
+  }, {
+    "name": "Spreadsheet",
+    "url": "/spreadsheet",
+    "icon": "/icons/spreadsheet.svg",
+    "location": "launcher",
+  }]
+}
+```
+
+This would install the main app with its app icon, and also two shortcut icons (word/spreadsheet) for the sub-apps.
+
+**Pros:**
+* Partial manifest spec for how shortcuts should be handled, but this is incomplete
+
+**Cons:**
+* Requires adapting the manifest spec format to support sub-app keys
+  * Spec changes + security review
+  * Code changes, bake time
+* Single install/uninstall events for the main app that won't happen often -> requires the APIs in use be more dynamic to support extra functionality
+  * main-app v1 is launched
+  * At some point, main-app v2 comes out that adds a new sub-app
+  * Will need to wait ~1 day for an update to come to install the app
+* Might put a lot of burden on clients of API as they might want to customize app installs (different groups of users with different sets of sub-apps) - a lot of different manifests to serve
+* Install & uninstall of subapps would require a manifest update, which is throttled currently & would have to be re-designed
+* Updates of subapps would follow suit - require a manifest update of parent app, which can only happen once a day
+  * Would also require a unique id per sub app - how will the browser know which one is new and which one is updating (if we move away from start_url)
+
+### Security & Privacy considerations
+
+* To prevent spoofing, both the sub-app name/icon would be badged together with the name/icon of the original PWA (ie. “Text Processor (VDI Provider)”)
+* `add` API call triggers a user agent permission prompt asking the user to confirm the action, as spam and spoofing prevention. The prompt would prominently include the shortcut name and icon.
+
+### Open Questions
+
+* Badging - we would want to security-badge the new shortcut app icon, but ideally this could work together with the already existing Badging API - how to go about doing this?
+  * another problem is how does the Badging API choose the right icon to badge? currently it just goes for the app itself, but in the context of a sub-app this might do the wrong thing and add the badge onto the main app icon instead of the sub-app
+  * We could possibly choose the right app by looking at the longest-scoped-installed-app for the given document the API is called on.
+
+### Future Work
+
+* DLC (declarative link capturing) & SWLE (service worker launch event) - both should work out of the box once available
+
+### References
+
+[sw-launch Event Explainer](https://wicg.github.io/sw-launch/explainer.html)
+* currently web apps have no control over whether launches will happen in a new window or an existing one
+* this feature allows Service Workers to control which window/tab they will open with
+
+[Declarative Link Capturing (DLC)](https://github.com/WICG/sw-launch/blob/master/declarative_link_capturing.md)
+* An alternative to sw-launch that is less powerful, but declarative, and has the option of expanding into the full launch event later on (“lightweight” SWLE)
+
+### Acknowledgements
+
+* Alex Russell‎
+* Chase Phillips‎
+* Daniel Murphy
+* Dominic Farolino
+* Matt Giuca
