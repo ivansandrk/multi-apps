@@ -62,7 +62,6 @@ await navigator.addRelatedApplication(spreadsheet_url);
 This API call would be restricted to same-origin manifests as the document calling it.
 
 **Pros:**
-
 * Most congruent with the architecture, least amount of dev work needed
 * Can reuse existing specs without needing to change them to support these new features
 * Lightweight on the security review side
