@@ -22,6 +22,7 @@ Programmatic management of icons is required to handle the use case of PWAs that
 ## Non-goals
 
 It is not a goal to support features offered to an installed PWA for ‘supplemental icons’ including:
+
 * badging (except possibly a forced badge of the PWA’s original icon for security reasons)
 * display mode
 * independent scope
