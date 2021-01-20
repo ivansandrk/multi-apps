@@ -155,10 +155,12 @@ This would install the main app with its app icon, and also two shortcut icons (
 ### References
 
 [sw-launch Event Explainer](https://wicg.github.io/sw-launch/explainer.html)
+
 * currently web apps have no control over whether launches will happen in a new window or an existing one
 * this feature allows Service Workers to control which window/tab they will open with
 
 [Declarative Link Capturing (DLC)](https://github.com/WICG/sw-launch/blob/master/declarative_link_capturing.md)
+
 * An alternative to sw-launch that is less powerful, but declarative, and has the option of expanding into the full launch event later on (“lightweight” SWLE)
 
 ### Acknowledgements
