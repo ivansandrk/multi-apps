@@ -43,7 +43,6 @@ Weighing the pros and cons of each we pick the Manifest URL as the most viable a
 ### Manifest URL
 
 The client app will add sub-apps via something like the following, which would in essence install the sub-app almost the same way as a regular app:
-
 ```
 spreadsheet_url = "https://vdi.app/spreadsheet/manifest.json";
 
