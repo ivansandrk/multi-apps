@@ -73,3 +73,30 @@ This API call would be restricted to same-origin manifests as the document calli
 
 **Cons:**
 * Clients of the API need to create and host the manifest file, but if needed this can be circumvented by clever usage of the service worker which can generate and serve the manifest on the fly
+
+### JSON object
+
+Very similar to the Manifest URL approach, except the manifest is directly fed to the API call (instead of indirectly through a URL).  The client app will add sub-apps via something like the following:
+```
+spreadsheet = {
+  "name": "Spreadsheet",
+  "icons": [{
+    "src": "/images/icons/spreadsheet.png",
+  }],
+  "start_url": "/spreadsheet/",
+  "display": "standalone"
+};
+
+await navigator.addRelatedApplication(spreadsheet);
+```
+
+**Pros** (compared to the Manifest URL approach):
+* Clients of API don’t need to serve the manifest
+
+**Cons (compared to the Manifest URL approach):**
+* The already existing code expects the manifest to be given via a URL, adapting it to this approach would incur significant development costs
+* The requirement of the developer providing an ID, or having the API shape distinguish between updating and adding
+
+### Large manifest
+
+asd
