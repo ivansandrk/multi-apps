@@ -58,6 +58,18 @@ await navigator.addRelatedApplication(spreadsheet_url);
   "display": "standalone"
 }
 ```
+
 This API call would be restricted to same-origin manifests as the document calling it.
 
-asd
+**Pros:**
+* Most congruent with the architecture, least amount of dev work needed
+* Can reuse existing specs without needing to change them to support these new features
+* Lightweight on the security review side
+* Don't need to duplicate functionality of manifest parts into sub-app manifest keys
+* Future APIs that end up in the manifest will show up in the sub-app manifest for free
+* Very dynamic and gives a lot of control to app developers
+   * Eg. app devs can change File handler associations immediately (Excel gets installed as a sub-app, and the File handler is associated immediately with it)
+* API does not need to distinguish between updating and adding as the manifest url (currently start_url) will be the unique identifier
+
+**Cons:**
+* Clients of the API need to create and host the manifest file, but if needed this can be circumvented by clever usage of the service worker which can generate and serve the manifest on the fly
