@@ -25,7 +25,6 @@ It is not a goal to support features offered to an installed PWA for ‘suppleme
 * badging (except possibly a forced badge of the PWA’s original icon for security reasons)
 * display mode
 * independent scope
-
 * browser handling of launcher icon clicks
 * tray/menu/notification icons
 * context menu shortcuts (action/jumplist shortcuts)
