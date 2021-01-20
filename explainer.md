@@ -2,8 +2,7 @@
 
 Authors:
 * Ivan Šandrk &lt;<isandrk@chromium.org>&gt;
-* Ivan Šandrk <isandrk@chromium.org>
-* Ivan Šandrk isandrk@chromium.org
+* Philipp Weiß‎ &lt;<phweiss@chromium.org>&gt;
 
 ## Introduction
 
@@ -17,6 +16,7 @@ In some circumstances it may be required for a single PWA to create multiple lau
 ## Goals
 
 Enable PWA developers to programmatically add application icons to their PWA that link into specific application features. This is to provide the user experience of using separate apps that seamlessly integrate into the work environment, even though they might be provided by a single PWA. For example, the user should see distinct Word, Excel, etc. icons, and not a single VDI Provider icon with a popup menu with “Launch Word”, “Launch Excel”, etc. actions.
+
 Programmatic management of icons is required to handle the use case of PWAs that add or remove functionality over time, for example, an enterprise Administrator adding newly licensed software through VDI Provider or similar virtual desktop application as described in example use cases.
 
 ## Non-goals
@@ -25,7 +25,7 @@ It is not a goal to support features offered to an installed PWA for ‘suppleme
 * badging (except possibly a forced badge of the PWA’s original icon for security reasons)
 * display mode
 * independent scope
+
 * browser handling of launcher icon clicks
 * tray/menu/notification icons
 * context menu shortcuts (action/jumplist shortcuts)
-
