@@ -2,8 +2,8 @@
 
 Authors:
 * Ivan Šandrk &lt;<isandrk@chromium.org>&gt;
-##* Darwin Huang &lt;<huangdarwin@chromium.org>&gt;
-//* Darwin Huang &lt;<huangdarwin@chromium.org>&gt;
+* Ivan Šandrk <isandrk@chromium.org>
+* Ivan Šandrk isandrk@chromium.org
 
 ## Introduction
 
