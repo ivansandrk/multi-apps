@@ -1,4 +1,4 @@
-# Subapps Explainer
+# Multi Apps Explainer
 
 Authors:
 * Ivan Šandrk &lt;<isandrk@chromium.org>&gt;
