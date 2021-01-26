@@ -21,12 +21,7 @@ This feature does not expose any sensitive information.
 
 ### 2.5. Does this specification introduce new state for an origin that persists across browsing sessions?
 
-TODO
-
-Yes, this feature adds the ability to create multiple storage buckets for an origin, in addition to the currently-specified default bucket.
-Buckets have names and storage policies.
-
-This feature does not add a new storage capability to the Web platform. All of its metadata could be stored in one of the existing storage APIs. 
+No.
 
 ### 2.6. What information from the underlying platform, e.g. configuration data, is exposed by this specification to an origin?
 
@@ -38,17 +33,7 @@ No.
 
 ### 2.8. What data does this specification expose to an origin? Please also document what data is identical to data exposed by other features, in the same or different contexts.
 
-TODO
-
-This feature introduces multiple storage buckets per origin, where each bucket has some metadata (name, description) and storage policies (expiration, durability, persistence) associated with it. All the newly introduced persistent data follows the same-origin principle.
-
-Each storage bucket can store data associated with one of the following storage APIs.
-
-* [IndexedDB](https://w3c.github.io/IndexedDB/)
-* [CacheStorage](https://w3c.github.io/ServiceWorker/#cachestorage)
-* Origin-Private File System in the [File System Access API](https://wicg.github.io/file-system-access/#sandboxed-filesystem)
-
-Each storage bucket supports quota accounting exposed by the [StorageManager](https://storage.spec.whatwg.org/#storagemanager) API.
+None.
 
 ### 2.9. Does this specification enable new script execution/loading mechanisms?
 
@@ -72,13 +57,7 @@ This specification will not distinguish between behaviour in first-party and thi
 
 ### 2.14. How does this specification work in the context of a user agent’s Private Browsing or "incognito" mode?
 
-TODO
-
-User agents are expected to maintain separate state for Private Browsing sessions.
-
-More concretely, the collection of buckets exposed to origins in a Private Browsing session should be separate from the collection exposed in a normal browsing session.
-
-At the time of this writing, major browsers have RAM-backed implementations of storage APIs such as [IndexedDB](https://w3c.github.io/IndexedDB/) and [CacheStorage](https://w3c.github.io/ServiceWorker/#cachestorage) for Private Browsing sessions. We expect that these browsers will have RAM-backed implementations of Storage Buckets as well.
+No difference between normal browsing and Private Browsing.
 
 ### 2.15. Does this specification have a "Security Considerations" and "Privacy Considerations" section?
 
