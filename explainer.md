@@ -108,7 +108,7 @@ Do everything in the manifest. The sub-apps/shortcuts for the main app would be 
     "name": "Word processor",
     "url": "/word-processor",
     "icon": "/icons/word-processor.svg",
-    // Since jumplist (context menu) shortcuts already (exist)[https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/main/Shortcuts/explainer.md].
+    // Since jumplist (context menu) shortcuts already [exist](https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/main/Shortcuts/explainer.md).
     "location": "launcher",
   }, {
     "name": "Spreadsheet",
