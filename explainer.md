@@ -38,11 +38,11 @@ In the following subsections we take a closer look at the following possible app
 * JSON object - similar to Manifest URL
 * Large manifest - shortcuts are implemented statically in the manifest of the main app
 
-Weighing the pros and cons of each we pick the Manifest URL as the most viable approach.
+Weighing the pros and cons of each we pick the _Manifest URL_ as the most viable approach.
 
 ### Manifest URL
 
-The client app will add sub-apps via something like the following, which would in essence install the sub-app almost the same way as a regular app:
+The client app will add sub-apps via something like the following, which would in essence _install_ the sub-app almost the same way as a regular app:
 ```javascript
 spreadsheet_url = "https://vdi.app/spreadsheet/manifest.json";
 
@@ -108,7 +108,7 @@ Do everything in the manifest. The sub-apps/shortcuts for the main app would be 
     "name": "Word processor",
     "url": "/word-processor",
     "icon": "/icons/word-processor.svg",
-    // Since jumplist (context menu) shortcuts already exist.
+    // Since jumplist (context menu) shortcuts already (exist)[https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/main/Shortcuts/explainer.md].
     "location": "launcher",
   }, {
     "name": "Spreadsheet",
