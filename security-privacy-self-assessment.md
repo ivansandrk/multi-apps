@@ -57,7 +57,7 @@ This specification will not distinguish between behaviour in first-party and thi
 
 ### 2.14. How does this specification work in the context of a user agent’s Private Browsing or "incognito" mode?
 
-No difference between normal browsing and Private Browsing.
+This specification doesn't work in Private Browsing.
 
 ### 2.15. Does this specification have a "Security Considerations" and "Privacy Considerations" section?
 
