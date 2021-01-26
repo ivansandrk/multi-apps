@@ -43,7 +43,7 @@ Weighing the pros and cons of each we pick the Manifest URL as the most viable a
 ### Manifest URL
 
 The client app will add sub-apps via something like the following, which would in essence install the sub-app almost the same way as a regular app:
-```
+```javascript
 spreadsheet_url = "https://vdi.app/spreadsheet/manifest.json";
 
 await navigator.addRelatedApplication(spreadsheet_url);
@@ -77,7 +77,7 @@ This API call would be restricted to same-origin manifests as the document calli
 ### JSON object
 
 Very similar to the Manifest URL approach, except the manifest is directly fed to the API call (instead of indirectly through a URL).  The client app will add sub-apps via something like the following:
-```
+```javascript
 spreadsheet = {
   "name": "Spreadsheet",
   "icons": [{
@@ -100,7 +100,7 @@ await navigator.addRelatedApplication(spreadsheet);
 ### Large manifest
 
 Do everything in the manifest. The sub-apps/shortcuts for the main app would be specified in its manifest statically. The manifest of the app would look something like the following:
-```
+```javascript
 {
   "name": "Office VDI app",
   "start_url": "https://vdi.app/",
@@ -155,12 +155,10 @@ This would install the main app with its app icon, and also two shortcut icons (
 ### References
 
 [sw-launch Event Explainer](https://wicg.github.io/sw-launch/explainer.html)
-
 * currently web apps have no control over whether launches will happen in a new window or an existing one
 * this feature allows Service Workers to control which window/tab they will open with
 
 [Declarative Link Capturing (DLC)](https://github.com/WICG/sw-launch/blob/master/declarative_link_capturing.md)
-
 * An alternative to sw-launch that is less powerful, but declarative, and has the option of expanding into the full launch event later on (“lightweight” SWLE)
 
 ### Acknowledgements
@@ -169,4 +167,5 @@ This would install the main app with its app icon, and also two shortcut icons (
 * Chase Phillips‎
 * Daniel Murphy
 * Dominic Farolino
+* Joshua Bell
 * Matt Giuca
