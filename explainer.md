@@ -139,8 +139,8 @@ This would install the main app with its app icon, and also two shortcut icons (
 
 ### Security & Privacy considerations
 
-* To prevent spoofing, both the sub-app name/icon would be badged together with the name/icon of the original PWA (ie. “Text Processor (VDI Provider)”)
 * `add` API call triggers a user agent permission prompt asking the user to confirm the action, as spam and spoofing prevention. The prompt would prominently include the shortcut name and icon.
+  * In Enterprise contexts, admins will be able to override this prompt via policy.
 
 ### Open Questions
 
