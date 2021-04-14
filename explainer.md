@@ -23,7 +23,7 @@ Programmatic management of icons is required to handle the use case of PWAs that
 
 It is not a goal to support features offered to an installed PWA for ‘supplemental icons’ including:
 
-* badging (except possibly a forced badge of the PWA’s original icon for security reasons)
+* badging
 * display mode
 * independent scope
 * browser handling of launcher icon clicks
@@ -141,12 +141,6 @@ This would install the main app with its app icon, and also two shortcut icons (
 
 * `add` API call triggers a user agent permission prompt asking the user to confirm the action, as spam and spoofing prevention. The prompt would prominently include the shortcut name and icon.
   * In Enterprise contexts, admins will be able to override this prompt via policy.
-
-### Open Questions
-
-* Badging - we would want to security-badge the new shortcut app icon, but ideally this could work together with the already existing Badging API - how to go about doing this?
-  * another problem is how does the Badging API choose the right icon to badge? currently it just goes for the app itself, but in the context of a sub-app this might do the wrong thing and add the badge onto the main app icon instead of the sub-app
-  * We could possibly choose the right app by looking at the longest-scoped-installed-app for the given document the API is called on.
 
 ### Future Work
 
